@@ -1,0 +1,277 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+/* Gamification Styles */
+.game-card {
+  @apply relative overflow-hidden rounded-xl border border-gray-200 bg-white shadow-md transition-all duration-300 hover:shadow-xl dark:border-gray-700 dark:bg-gray-800;
+}
+
+.game-card-gradient {
+  @apply relative overflow-hidden rounded-xl border border-transparent bg-gradient-to-br shadow-md transition-all duration-300 hover:shadow-xl;
+}
+
+.game-card-gradient.beginner {
+  @apply from-green-500/20 to-blue-500/20 border-green-200 dark:from-green-900/30 dark:to-blue-900/30 dark:border-green-800;
+}
+
+.game-card-gradient.intermediate {
+  @apply from-blue-500/20 to-indigo-500/20 border-blue-200 dark:from-blue-900/30 dark:to-indigo-900/30 dark:border-blue-800;
+}
+
+.game-card-gradient.advanced {
+  @apply from-indigo-500/20 to-purple-500/20 border-indigo-200 dark:from-indigo-900/30 dark:to-purple-900/30 dark:border-indigo-800;
+}
+
+.game-card-gradient.expert {
+  @apply from-purple-500/20 to-pink-500/20 border-purple-200 dark:from-purple-900/30 dark:to-pink-900/30 dark:border-purple-800;
+}
+
+.game-card-gradient.master {
+  @apply from-pink-500/20 to-amber-500/20 border-pink-200 dark:from-pink-900/30 dark:to-amber-900/30 dark:border-pink-800;
+}
+
+.game-badge {
+  @apply inline-flex items-center justify-center rounded-full px-2.5 py-0.5 text-xs font-medium transition-colors;
+}
+
+.game-badge.beginner {
+  @apply bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300;
+}
+
+.game-badge.intermediate {
+  @apply bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300;
+}
+
+.game-badge.advanced {
+  @apply bg-indigo-100 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-300;
+}
+
+.game-badge.expert {
+  @apply bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300;
+}
+
+.game-badge.master {
+  @apply bg-pink-100 text-pink-800 dark:bg-pink-900/30 dark:text-pink-300;
+}
+
+.game-button {
+  @apply relative overflow-hidden rounded-lg px-4 py-2 font-medium text-white shadow-md transition-all duration-300 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2;
+}
+
+.game-button.primary {
+  @apply bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 focus:ring-indigo-500;
+}
+
+.game-button.secondary {
+  @apply bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 focus:ring-pink-500;
+}
+
+.game-button.success {
+  @apply bg-gradient-to-r from-emerald-500 to-green-500 hover:from-emerald-600 hover:to-green-600 focus:ring-emerald-500;
+}
+
+.game-button.warning {
+  @apply bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 focus:ring-amber-500;
+}
+
+.game-button.danger {
+  @apply bg-gradient-to-r from-red-500 to-rose-500 hover:from-red-600 hover:to-rose-600 focus:ring-red-500;
+}
+
+.game-button.info {
+  @apply bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 focus:ring-blue-500;
+}
+
+.shimmer {
+  @apply relative overflow-hidden;
+}
+
+.shimmer::before {
+  @apply absolute inset-0 -translate-x-full;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  content: "";
+  animation: shimmer 2s infinite;
+}
+
+.dark .shimmer::before {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+/* Progress bar styles */
+.xp-progress-bar {
+  @apply h-2 w-full overflow-hidden rounded-full bg-gray-200 dark:bg-gray-700;
+}
+
+.xp-progress-bar .progress {
+  @apply h-full rounded-full transition-all duration-500 ease-out;
+}
+
+.xp-progress-bar.beginner .progress {
+  @apply bg-gradient-to-r from-green-500 to-blue-500;
+}
+
+.xp-progress-bar.intermediate .progress {
+  @apply bg-gradient-to-r from-blue-500 to-indigo-500;
+}
+
+.xp-progress-bar.advanced .progress {
+  @apply bg-gradient-to-r from-indigo-500 to-purple-500;
+}
+
+.xp-progress-bar.expert .progress {
+  @apply bg-gradient-to-r from-purple-500 to-pink-500;
+}
+
+.xp-progress-bar.master .progress {
+  @apply bg-gradient-to-r from-pink-500 to-amber-500;
+}
+
+/* Achievement badge styles */
+.achievement-badge {
+  @apply relative flex h-16 w-16 items-center justify-center rounded-full border-2 shadow-md transition-transform duration-300 hover:scale-110;
+}
+
+.achievement-badge.locked {
+  @apply border-gray-300 bg-gray-100 text-gray-400 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-500;
+}
+
+.achievement-badge.unlocked {
+  @apply border-indigo-300 bg-indigo-100 text-indigo-600 dark:border-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-400;
+}
+
+.achievement-badge.bronze {
+  @apply border-amber-300 bg-amber-100 text-amber-600 dark:border-amber-700 dark:bg-amber-900/30 dark:text-amber-400;
+}
+
+.achievement-badge.silver {
+  @apply border-gray-300 bg-gray-100 text-gray-600 dark:border-gray-500 dark:bg-gray-700 dark:text-gray-300;
+}
+
+.achievement-badge.gold {
+  @apply border-yellow-300 bg-yellow-100 text-yellow-600 dark:border-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400;
+}
+
+.achievement-badge.platinum {
+  @apply border-purple-300 bg-purple-100 text-purple-600 dark:border-purple-700 dark:bg-purple-900/30 dark:text-purple-400;
+}
+
+/* Floating animation for elements */
+.float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.float-delay-1 {
+  animation-delay: 0.5s;
+}
+
+.float-delay-2 {
+  animation-delay: 1s;
+}
+
+.float-delay-3 {
+  animation-delay: 1.5s;
+}
+
+/* Pulse animation for elements */
+.pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Bounce animation for elements */
+.bounce {
+  animation: bounce 1s ease-in-out infinite;
+}
